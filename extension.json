@@ -23,35 +23,16 @@
         "filesystem": "readonly"
     },
     
-    "issueMatchers": {
-        "rebarCompileError": {
-            "pattern": {
-                "regexp": "^\\*\\* \\((\\w+)\\) (.*):(\\d+): (.*)$",
-                "message": 0,
-                "code": 1,
-                "file": 2,
-                "line": 3,
-                "severity": "error"
+    "commands": {
+        "editor": [
+            {
+                "title": "Go to Definition",
+                "command": "erlang.goToDefinition",
+                "filters": {
+                    "syntaxes": ["erlang"]
+                }
             }
-        },
-        "rebarCompileWarning": {
-            "pattern": {
-                "regexp": "^warning: (.*)$",
-                "message": 0,
-                "code": 1,
-                "file": 2,
-                "line": 3,
-                "severity": "warning"
-            },
-            "pattern": {
-                "regexp": "^  (.*):(\\d+)(.*)$",
-                "message": 0,
-                "code": 1,
-                "file": 2,
-                "line": 3,
-                "severity": "warning"
-            }
-        }
+        ]
     },
     
     "config": [
