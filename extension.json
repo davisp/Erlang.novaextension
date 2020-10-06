@@ -5,9 +5,67 @@
     "description": "Erlang Syntax for Nova",
     "version": "2.0.0",
     "license": "Apache 2.0 License",
-    "categories": ["languages"],
+    "categories": ["languages", "completions"],
     "repository": "https://github.com/neighbourhoodie/Erlang.novaextension",
     "bugs": {
         "url": "https://github.com/neighbourhoodie/Erlang.novaextension/issues"
-    }
+    },
+    
+    "main": "main.js",
+    
+    "activationEvents": [
+        "onWorkspaceContains:*.erl,*.hrl",
+        "onLanguage:erlang"
+    ],
+    
+    "entitlements": {
+        "process": true,
+        "filesystem": "readonly"
+    },
+    
+    "issueMatchers": {
+        "rebarCompileError": {
+            "pattern": {
+                "regexp": "^\\*\\* \\((\\w+)\\) (.*):(\\d+): (.*)$",
+                "message": 0,
+                "code": 1,
+                "file": 2,
+                "line": 3,
+                "severity": "error"
+            }
+        },
+        "rebarCompileWarning": {
+            "pattern": {
+                "regexp": "^warning: (.*)$",
+                "message": 0,
+                "code": 1,
+                "file": 2,
+                "line": 3,
+                "severity": "warning"
+            },
+            "pattern": {
+                "regexp": "^  (.*):(\\d+)(.*)$",
+                "message": 0,
+                "code": 1,
+                "file": 2,
+                "line": 3,
+                "severity": "warning"
+            }
+        }
+    },
+    
+    "config": [
+        {
+            "key": "erlang.trace.server",
+            "title": "Trace",
+            "description": "Traces the communication between Nova and the Erlang language server.",
+            "type": "enum",
+            "values": [
+                "off",
+                "messages",
+                "verbose"
+            ],
+            "default": "off"
+        }
+    ]
 }
