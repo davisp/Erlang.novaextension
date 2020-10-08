@@ -10,31 +10,31 @@
     "bugs": {
         "url": "https://github.com/neighbourhoodie/Erlang.novaextension/issues"
     },
-    
+
     "main": "main.js",
-    
+
     "activationEvents": [
         "onWorkspaceContains:*.erl,*.hrl",
         "onLanguage:erlang"
     ],
-    
+
     "entitlements": {
         "process": true,
         "filesystem": "readonly"
     },
-    
+
     "commands": {
         "editor": [
             {
-                "title": "Go to Definition",
-                "command": "erlang.goToDefinition",
+                "title": "Goto Definition",
+                "command": "erlang.goto_definition",
                 "filters": {
                     "syntaxes": ["erlang"]
                 }
             }
         ]
     },
-    
+
     "config": [
         {
             "key": "erlang.trace.server",
